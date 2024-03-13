@@ -29,7 +29,16 @@ export default function Login() {
           showSuccessAlert('welcome')
 
           // redirect to the home page
-          navigate('/home')
+          console.log(role)
+          if (role === "admin") {
+            navigate('/home')  
+          }
+          if (role === "staff") {
+            navigate('/staff-Dashboard')  
+          }
+          if (role === "student") {
+            navigate('/student-Dashboard')  
+          }
         } else {
           showErrorAlert('invalid email or password')
         }

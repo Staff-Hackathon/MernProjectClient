@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { canVisit, showErrorAlert } from '../utils'
+import {loadAllFeedBacks} from '../services/feedback'
+import Feedback from '../components/Feedback'
 
 export default function Home() {
-  const [blogs, setBlogs] = useState([])
+  const [feedbacks, setfeedbacks] = useState([])
   const navigate = useNavigate()
 
   const onLogout = () => {
@@ -15,7 +17,17 @@ export default function Home() {
 
     // redirect to the login page
     navigate('/')
-  }
+  };
+
+  useEffect(() => {
+    loadAllFeedBacks((result) => {
+        if (result["status"] === "success") {
+          setfeedbacks(result["data"]);
+        } else {
+            showErrorAlert(result["error"]);
+        }
+    });
+}, []);
 
 
   return (
@@ -47,6 +59,16 @@ export default function Home() {
         My Feedbacks
       </Link>
 
+      <div className="row">
+                {feedbacks.length > 0 &&
+                    feedbacks.map((feedback) => {
+                        return <Feedback key={feedback.id} feedback={feedback} />;
+                    })}
+
+                {feedbacks.length == 0 && (
+                    <h2>You do not have any feedbacks added yet.</h2>
+                )}
+            </div>
     </div>
   )
 }

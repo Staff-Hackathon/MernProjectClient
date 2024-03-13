@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import Login from "./screens/login"
 import Register from "./screens/Regsiter"
 import Home from "./screens/Home"
-import { ToastContainer } from "react-toastify"
+import CreateFeedback from "./screens/CreateFeedback"
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
         <Route path='' element={<Login />} />
         <Route path='register' element={<Register />} />
         <Route path='home' element={<Home />} />
+        <Route path='create-feedback' element={<CreateFeedback />} />
       </Routes>
     </div>
   )
