@@ -20,11 +20,12 @@ export default function Login() {
       userLogin(email, password, (result) => {
         if (result['status'] === 'success') {
           // extract the token and cache it for further api calls
-          const { id, firstName, lastName, role, token, profileImage } = result['data']
+          const { id, firstName, lastName, role, course, token, profileImage } = result['data']
           sessionStorage.setItem('uid', id)
           sessionStorage.setItem('firstName', firstName)
           sessionStorage.setItem('lastName', lastName)
           sessionStorage.setItem('role', role)
+          sessionStorage.setItem('course', course)
           sessionStorage.setItem('token', token)
           sessionStorage.setItem('profileImage', profileImage)
           showSuccessAlert('welcome')

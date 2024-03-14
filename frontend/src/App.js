@@ -5,6 +5,7 @@ import Home from "./screens/Home"
 import CreateFeedback from "./screens/CreateFeedback"
 import StudentDashboard from "./screens/StudentDashboard"
 import StaffDashboard from "./screens/StaffDashboard"
+import SubmitFeedback from "./screens/SubmitFeedback"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='create-feedback' element={<CreateFeedback />} />
         <Route path='student-Dashboard' element={<StudentDashboard />} />
         <Route path='staff-Dashboard' element={<StaffDashboard />} />
+        <Route path='submit-feedback' element={<SubmitFeedback />} />
       </Routes>
     </div>
   )

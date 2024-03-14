@@ -15,6 +15,7 @@ export default function StaffDashboard() {
     sessionStorage.removeItem('firstName')
     sessionStorage.removeItem('lastName')
     sessionStorage.removeItem('role')
+    sessionStorage.removeItem('course')
     sessionStorage.removeItem('token')
     sessionStorage.removeItem('profileImage')
 
