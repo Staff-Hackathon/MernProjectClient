@@ -20,7 +20,8 @@ export default function Login() {
       userLogin(email, password, (result) => {
         if (result['status'] === 'success') {
           // extract the token and cache it for further api calls
-          const { firstName, lastName, role, token, profileImage } = result['data']
+          const { id, firstName, lastName, role, token, profileImage } = result['data']
+          sessionStorage.setItem('uid', id)
           sessionStorage.setItem('firstName', firstName)
           sessionStorage.setItem('lastName', lastName)
           sessionStorage.setItem('role', role)
@@ -29,7 +30,6 @@ export default function Login() {
           showSuccessAlert('welcome')
 
           // redirect to the home page
-          console.log(role)
           if (role === "admin") {
             navigate('/home')  
           }

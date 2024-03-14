@@ -7,13 +7,15 @@ import Feedback from '../components/Feedback'
 export default function Home() {
   const [feedbacks, setfeedbacks] = useState([])
   const navigate = useNavigate()
-
+ 
   const onLogout = () => {
     // remove all the cached settings from session
+    sessionStorage.removeItem('uid')
     sessionStorage.removeItem('firstName')
     sessionStorage.removeItem('lastName')
     sessionStorage.removeItem('role')
     sessionStorage.removeItem('token')
+    sessionStorage.removeItem('profileImage')
 
     // redirect to the login page
     navigate('/')
@@ -52,13 +54,6 @@ export default function Home() {
         Create feedback
       </Link>
 
-      <Link
-        to='/my-feedbacks'
-        className='btn btn-success btn-sm'
-        style={{ marginBottom: 10 }}>
-        My Feedbacks
-      </Link>
-
       <div className="row">
                 {feedbacks.length > 0 &&
                     feedbacks.map((feedback) => {
@@ -66,8 +61,8 @@ export default function Home() {
                     })}
 
                 {feedbacks.length == 0 && (
-                    <h2>You do not have any feedbacks added yet.</h2>
-                )}
+                    <h2>No any feedbacks added yet.</h2>
+                    )}
             </div>
     </div>
   )

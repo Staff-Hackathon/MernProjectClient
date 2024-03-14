@@ -17,10 +17,6 @@ export default function Feedback({ feedback }) {
     )
 }
 const styles = {
-    by: {
-        marginTop: 5,
-        fontWeight: 500,
-    },
     container: {
         borderStyle: "solid",
         borderWidth: 1,
@@ -28,12 +24,15 @@ const styles = {
         borderRadius: 10,
         padding: 20,
         display: "inline-block",
-        width: 200,
+        width: "auto",
     },
-    title: {
+    course: {
         fontWeight: "bold",
     },
-    types: {
-        marginTop: 10,
+    type: {
+        fontWeight: "",
     },
+    rating: {
+        fontWeight: "bold",
+    }
 }

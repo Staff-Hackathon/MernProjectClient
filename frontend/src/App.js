@@ -3,6 +3,8 @@ import Login from "./screens/login"
 import Register from "./screens/Regsiter"
 import Home from "./screens/Home"
 import CreateFeedback from "./screens/CreateFeedback"
+import StudentDashboard from "./screens/StudentDashboard"
+import StaffDashboard from "./screens/StaffDashboard"
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route path='register' element={<Register />} />
         <Route path='home' element={<Home />} />
         <Route path='create-feedback' element={<CreateFeedback />} />
+        <Route path='student-Dashboard' element={<StudentDashboard />} />
+        <Route path='staff-Dashboard' element={<StaffDashboard />} />
       </Routes>
     </div>
   )
