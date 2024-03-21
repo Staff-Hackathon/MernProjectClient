@@ -8,7 +8,7 @@ import { submitFeedback } from '../services/feedback'
 export default function SubmitFeedback() {
     const [Punctuality, setPunctuality] = useState([])
     const [queries_solved, setQueries_solved] = useState('')
-    const [initiative, setInitiative] = useState('')
+    const [Initiative, setInitiative] = useState('')
     const [responsiveness, setResponsiveness] = useState('')
     const navigate = useNavigate()
 
@@ -17,12 +17,12 @@ export default function SubmitFeedback() {
         const sid =  {
             "id": sessionStorage['uid']
         }
-        const addition = parseInt(Punctuality) + parseInt(queries_solved) + parseInt(initiative) + parseInt(responsiveness);
+        const addition = parseInt(Punctuality) + parseInt(queries_solved) + parseInt(Initiative) + parseInt(responsiveness);
         const total = addition/4;
 
         console.log(addition, total, "kjhgfdsdfghjk");
-        console.log(sid, Punctuality, queries_solved, initiative, responsiveness, total);
-        submitFeedback(fid, sid, Punctuality, queries_solved, initiative, responsiveness, total, (result) => {
+        console.log(sid, Punctuality, queries_solved, Initiative, responsiveness, total);
+        submitFeedback(fid, sid, Punctuality, queries_solved, Initiative, responsiveness, total, (result) => {
             if (result["status"] === "success") {
                 navigate("/student-Dashboard")
                 showSuccessAlert("Submitted new Feedback")

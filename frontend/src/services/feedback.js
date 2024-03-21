@@ -48,10 +48,10 @@ export function createFeedback(course, sdate, edate, type, uid, callback) {
 }
 
 
-export function submitFeedback(fid, sid, Punctuality, queries_solved, initiative, responsiveness, total, callback) {
+export function submitFeedback(fid, sid, Punctuality, queries_solved, Initiative, responsiveness, total, callback) {
   const url = config.server + "/tfeedback/" + fid;
-  console.log(fid, sid, Punctuality, queries_solved, initiative, responsiveness, total);
-  axios.post(url, {sid, Punctuality, queries_solved, initiative, responsiveness, total,}, prepareTokenHeader()).then((response) => {
+  console.log(fid, sid, Punctuality, queries_solved, Initiative, responsiveness, total);
+  axios.post(url, {sid, Punctuality, queries_solved, Initiative, responsiveness, total,}, prepareTokenHeader()).then((response) => {
     const result = response.data;
     console.log(result);
     callback(result);
