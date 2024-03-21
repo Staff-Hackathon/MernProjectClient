@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom"
 export default function Feedback({ feedback }) {
     const navigate = useNavigate()
 
-   
-    
+    const onFeedbackSelect = () => {
+        sessionStorage.setItem('fid', feedback.id);
+        navigate("/submit-feedback", { state: feedback })
+    }
 
     return (
-        <div style={styles.container}>
+        <div style={styles.container} onClick={onFeedbackSelect}>
             <div style={styles.course}>{feedback["course"]}</div>
             <div style={styles.type}>{feedback["type"]}</div>
             <div style={styles.sdate}>{feedback["sdate"]}</div>

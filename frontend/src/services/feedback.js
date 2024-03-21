@@ -30,10 +30,30 @@ export function loadAllMyFeedBacks(id, callback) {
   });
 }
 
+export function loadScheduledFeedBacks(course, date, callback) {
+  const url = config.server + "/feedback/bycourse";
+  axios.post(url, {course, date}, prepareTokenHeader()).then((response) => {
+    const result = response.data;
+    console.log(result);
+    callback(result);
+  });
+}
+
 export function createFeedback(course, sdate, edate, type, uid, callback) {
   const url = config.server + "/feedback";
   axios.post(url, {course, sdate, edate, type, uid}, prepareTokenHeader()).then((response) => {
     const result = response.data;
+    callback(result);
+  });
+}
+
+
+export function submitFeedback(fid, sid, Punctuality, queries_solved, Initiative, responsiveness, total, callback) {
+  const url = config.server + "/tfeedback/" + fid;
+  console.log(fid, sid, Punctuality, queries_solved, Initiative, responsiveness, total);
+  axios.post(url, {sid, Punctuality, queries_solved, Initiative, responsiveness, total,}, prepareTokenHeader()).then((response) => {
+    const result = response.data;
+    console.log(result);
     callback(result);
   });
 }
