@@ -74,11 +74,19 @@ export default function CreateFeedback() {
 
                         <div className="mb-3">
                             <label htmlFor="">Type</label>
-                            <input
+                            {/* <input
                                 onChange={(e) => setType(e.target.value)}
                                 type="text"
                                 className="form-control"
                             />
+                             */}
+                            <select onChange={(e) => setType(e.target.value)} className="form-control">
+                            <option value="Mid Module Lab">Mid Module Lab</option>
+                            <option value="Mid Module Theory">Mid Module Theory</option>
+                            <option value="Module End Lab">Module End Lab</option>
+                            <option value="Module End Theory">Module End Theory</option>
+                            <option value="Module End Infra">Module End Infra</option>
+                            </select>
                         </div>
 
                         <div className="mb-3">
