@@ -22,10 +22,29 @@ export function userLogin(email, password, callback) {
   })
 }
 
+export function userRegister(firstName, lastName, email, password, role, course, callback) {
+  const url = config.server + '/user/signup'
+  axios.post(url, {firstName, lastName, email, password, role, course }).then((response) => {
+    const result = response.data
+    console.log(result);
+    callback(result)
+  })
+}
+
 export function loadAllFaculties(callback) {
   const url = config.server + "/user/allfaculties";
   axios.get(url, prepareTokenHeader()).then((response) => {
     const result = response.data;
+    console.log(result);
+    callback(result);
+  });
+}
+
+export function loadAllCourses(callback) {
+  const url = config.server + "/user/allcourses";
+  axios.get(url, prepareTokenHeader()).then((response) => {
+    const result = response.data;
+    console.log(result);
     callback(result);
   });
 }

@@ -17,11 +17,9 @@ export default function SubmitFeedback() {
         const sid =  {
             "id": sessionStorage['uid']
         }
-        const addition = parseInt(Punctuality) + parseInt(queries_solved) + parseInt(Initiative) + parseInt(responsiveness);
-        const total = addition/4;
+        
+        const total = (parseInt(Punctuality) + parseInt(queries_solved) + parseInt(Initiative) + parseInt(responsiveness))/4;
 
-        console.log(addition, total, "kjhgfdsdfghjk");
-        console.log(sid, Punctuality, queries_solved, Initiative, responsiveness, total);
         submitFeedback(fid, sid, Punctuality, queries_solved, Initiative, responsiveness, total, (result) => {
             if (result["status"] === "success") {
                 navigate("/student-Dashboard")

@@ -2,10 +2,11 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { createFeedback } from "../services/feedback"
 import { showErrorAlert, showSuccessAlert } from "../utils"
-import { loadAllFaculties } from "../services/user"
+import { loadAllCourses, loadAllFaculties } from "../services/user"
 
 export default function CreateFeedback() {
     const [faculties, setFaculties] = useState([])
+    const [courses, setCourses] = useState('')
     const [course, setCourse] = useState('')
     const [type, setType] = useState('')
     const [sdate, setSDate] = useState('')
@@ -14,9 +15,19 @@ export default function CreateFeedback() {
     const navigate = useNavigate()
 
     useEffect(() => {
+        
         loadAllFaculties((result) => {
+            console.log("in loading fac");
             if (result["status"] === "success") {
               setFaculties(result["data"]);
+            } else {
+                showErrorAlert(result["error"]);
+            }
+        });
+        loadAllCourses((result) => {
+            console.log("in loading course");
+            if (result["status"] === "success") {
+                setCourses(result["data"]);
             } else {
                 showErrorAlert(result["error"]);
             }
@@ -49,15 +60,33 @@ export default function CreateFeedback() {
                                 type="text"
                                 className="form-control"
                             />
+                            
                         </div>
+
+                        {/* <div className="mb-3">
+                            <label htmlFor="">Course name</label>
+                            <select onChange={(e) => setCourse(e.target.value)} className="form-control">
+                            {courses.map(Course => {
+                                return <option value={Course["cname"]}>{Course["cname"]}</option>
+                            })}
+                            </select>
+                        </div> */}
 
                         <div className="mb-3">
                             <label htmlFor="">Type</label>
-                            <input
+                            {/* <input
                                 onChange={(e) => setType(e.target.value)}
                                 type="text"
                                 className="form-control"
                             />
+                             */}
+                            <select onChange={(e) => setType(e.target.value)} className="form-control">
+                            <option value="Mid Module Lab">Mid Module Lab</option>
+                            <option value="Mid Module Theory">Mid Module Theory</option>
+                            <option value="Module End Lab">Module End Lab</option>
+                            <option value="Module End Theory">Module End Theory</option>
+                            <option value="Module End Infra">Module End Infra</option>
+                            </select>
                         </div>
 
                         <div className="mb-3">

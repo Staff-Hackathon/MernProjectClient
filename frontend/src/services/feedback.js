@@ -39,6 +39,15 @@ export function loadScheduledFeedBacks(course, date, callback) {
   });
 }
 
+export function checkForNonSubmitted(sid, callback) {
+  const url = config.server + "/tfeedback/"  + sid;
+  axios.get(url, prepareTokenHeader()).then((response) => {
+    const result = response.data;
+    // console.log(result);
+    callback(result);
+  });
+} 
+
 export function createFeedback(course, sdate, edate, type, uid, callback) {
   const url = config.server + "/feedback";
   axios.post(url, {course, sdate, edate, type, uid}, prepareTokenHeader()).then((response) => {

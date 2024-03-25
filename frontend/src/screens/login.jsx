@@ -48,7 +48,7 @@ export default function Login() {
   }
 
   return (
-    <div>
+    <div className="main1">
       <h3 className='header'>Login</h3>
 
       <div className='row'>
@@ -74,10 +74,6 @@ export default function Login() {
             </div>
 
             <div className='mb-3'>
-              <div>
-                Don't you have an account yet?{' '}
-                <Link to='/register'>register here</Link>
-              </div>
               <button
                 onClick={onLogin}
                 style={{ marginTop: 10 }}
