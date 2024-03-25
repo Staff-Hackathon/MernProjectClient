@@ -36,7 +36,7 @@ export default function StaffDashboard() {
 
 
   return (
-    <div>
+    <div className="main1">
       <div className=' float-end'>
         <img
           style={{ width: 40 }}

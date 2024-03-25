@@ -4,19 +4,33 @@ export default function Feedback({ feedback }) {
     const navigate = useNavigate()
 
     const onFeedbackSelect = () => {
+        if (sessionStorage['role'] == "student") {
         sessionStorage.setItem('fid', feedback.id);
         navigate("/submit-feedback", { state: feedback })
+        }
     }
 
-    return (
-        <div style={styles.container} onClick={onFeedbackSelect}>
+    
+        if (sessionStorage['role'] == "student") {
+            return (
+            <div style={styles.container} onClick={onFeedbackSelect}>
+            <div style={styles.course}>{feedback["course"]}</div>
+            <div style={styles.type}>{feedback["type"]}</div>
+            </div>
+            )
+        } else {
+            return (
+            <div style={styles.container} onClick={onFeedbackSelect}>
             <div style={styles.course}>{feedback["course"]}</div>
             <div style={styles.type}>{feedback["type"]}</div>
             <div style={styles.sdate}>{feedback["sdate"]}</div>
             <div style={styles.edate}>{feedback["edate"]}</div>
             <div style={styles.rating}>{feedback["rating"]}</div>
         </div>
-    )
+            )
+        }
+        
+        
 }
 const styles = {
     container: {

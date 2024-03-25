@@ -26,6 +26,16 @@ export function loadAllFaculties(callback) {
   const url = config.server + "/user/allfaculties";
   axios.get(url, prepareTokenHeader()).then((response) => {
     const result = response.data;
+    console.log(result);
+    callback(result);
+  });
+}
+
+export function loadAllCourses(callback) {
+  const url = config.server + "/user/allcourses";
+  axios.get(url, prepareTokenHeader()).then((response) => {
+    const result = response.data;
+    console.log(result);
     callback(result);
   });
 }

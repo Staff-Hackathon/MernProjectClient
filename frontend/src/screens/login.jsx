@@ -48,7 +48,7 @@ export default function Login() {
   }
 
   return (
-    <div>
+    <div className="main1">
       <h3 className='header'>Login</h3>
 
       <div className='row'>
