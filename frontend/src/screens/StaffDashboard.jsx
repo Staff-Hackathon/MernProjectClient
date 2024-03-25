@@ -43,7 +43,7 @@ export default function StaffDashboard() {
           src={`http://localhost:4000/${sessionStorage['profileImage']}`}
           alt=''
         />
-        <div>Welcome {sessionStorage['firstName']}</div>
+        <div>Welcome {sessionStorage['firstName']} {sessionStorage['lastName']}</div>
         <button onClick={onLogout} className='btn btn-warning btn-sm'>
           Logout
         </button>

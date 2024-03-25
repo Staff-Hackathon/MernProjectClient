@@ -40,7 +40,7 @@ export default function Home() {
           src={`http://localhost:4000/${sessionStorage['profileImage']}`}
           alt=''
         />
-        <div>Welcome {sessionStorage['firstName']}</div>
+        <div>Welcome {sessionStorage['firstName']} {sessionStorage['lastName']}</div>
         <button onClick={onLogout} className='btn btn-warning btn-sm'>
           Logout
         </button>
@@ -52,6 +52,13 @@ export default function Home() {
         className='btn btn-success btn-sm'
         style={{ marginBottom: 10, marginRight: 10 }}>
         Create feedback
+      </Link>
+
+      <Link
+        to='/register'
+        className='btn btn-success btn-sm'
+        style={{ marginBottom: 10, marginRight: 10 }}>
+        Add New User
       </Link>
 
       <div className="row">

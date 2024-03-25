@@ -20,7 +20,7 @@ export default function Feedback({ feedback }) {
             )
         } else {
             return (
-            <div style={styles.container} onClick={onFeedbackSelect}>
+            <div style={styles.container}>
             <div style={styles.course}>{feedback["course"]}</div>
             <div style={styles.type}>{feedback["type"]}</div>
             <div style={styles.sdate}>{feedback["sdate"]}</div>
